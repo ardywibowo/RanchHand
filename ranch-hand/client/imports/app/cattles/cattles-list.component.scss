@@ -1,0 +1,82 @@
+.cattles-list-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  display: table;
+  width: 100%;
+
+  .cattles-list {
+    display: table-cell;
+    height: 100%;
+    width: 25%;
+    vertical-align: top;
+
+    .pagination {
+      display: inline;
+      text-align: center;
+    }
+
+    .filter-card {
+      margin: 20px;
+      height: 20%;
+    }
+
+    .cattle-card {
+      margin: 20px;
+      height: 11%;
+      position: relative;
+
+      img.cattle-main-image {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .cattle-name > a {
+        color: black;
+        text-decoration: none;
+      }
+
+      .remove-cattle {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      .rsvp-container {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+
+        .rsvps-sum {
+          display: inline-block;
+          width: 50px;
+          text-align: center;
+
+          .rsvps-amount {
+            font-size: 24px;
+          }
+
+          .rsvps-title {
+            font-size: 13px;
+            color: #aaa;
+          }
+        }
+      }
+    }
+  }
+
+  .cattles-map {
+    display: table-cell;
+    width: 75%;
+    vertical-align: top;
+    .google-map {
+      width: 100%;
+      height: 88vh;
+    }
+    .map-slider {
+      width: 100%;
+      height: 2vh;
+    }
+  }
+}

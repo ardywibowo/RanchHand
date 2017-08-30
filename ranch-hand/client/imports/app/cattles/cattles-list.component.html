@@ -1,0 +1,40 @@
+<cattles-form></cattles-form>
+<div class="cattles-list-container">
+  <div class="cattles-list">
+    <md-card class="filter-card">
+      <h3>Filter Cattle</h3>
+      <form>
+        By Name:
+        <md-input-container>
+          <input mdInput dividerColor="primary" type="text" #searchtext placeholder="Enter Name"></input>
+        </md-input-container>
+        <button md-button (click)="search(searchtext.value)">Find</button>
+        <br /> Sort by name:
+        <select class="form-control" #sort (change)="changeSortOrder(sort.value)">
+          <option value="1" selected>Ascending</option>
+          <option value="-1">Descending</option>
+        </select>
+      </form>
+    </md-card>
+    <pagination-controls class="pagination" (pageChange)="onPageChanged($event)"></pagination-controls>
+    <md-card *ngFor="let cattle of pageCattles | async" class="cattle-card">
+      <h2 class="cattle-name">
+        <a [routerLink]="['/cattle', cattle._id]">{{cattle.name}}</a>
+      </h2>
+      <button class="remove-cattle" md-icon-button *ngIf="isOwner(cattle)" (click)="removeCattle(cattle)">
+        <md-icon class="md-24">X</md-icon>
+      </button>
+    </md-card>
+    <pagination-controls class="pagination" (pageChange)="onPageChanged($event)"></pagination-controls>
+  </div>
+  <div class="cattles-map">
+    <ng2-map [options]="allOptions" class="google-map">
+      <ng-container *ngFor="let position of currentPositions">
+        <marker [position]="position"></marker>
+      </ng-container>
+      <heatmap-layer [data]="heatmapPoints"></heatmap-layer>
+    </ng2-map>
+    <md-slider class="map-slider" max="1605" [value]="timeIndex" step="1" (change)="updateTimeIndex($event.value)"></md-slider>
+    <!--<button md-button (click)="testButton()">Click Me</button>-->
+  </div>
+</div>

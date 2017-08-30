@@ -1,0 +1,28 @@
+<div class="cattle-details-container" *ngIf="cattle">
+  <div class="row">
+    <div class="cattle-details">
+      <md-card>
+        <h2>{{ cattle.name }}</h2>
+        <form layout="column" (submit)="saveCattle()">
+          <label>Cattle Name: </label>
+          <md-input-container>
+            <input mdInput [disabled]="!isOwner" [(ngModel)]="cattle.name" name="name"></input>
+          </md-input-container>
+          <div layout="row" layout-align="left">
+            <button [disabled]="!isOwner" type="submit" md-raised-button color="accent">Save</button>
+            <a [routerLink]="['/']" md-raised-button class="md-raised">Back</a>
+          </div>
+        </form>
+      </md-card>
+    </div>
+    <div class="cattle-map">
+      <md-card>
+        <h2>Cattle location</h2>
+        <!--<sebm-google-map [latitude]="latitude || centerLat" [longitude]="longitude || centerLongitude" [zoom]="8" (mapClick)="mapClicked($event)">
+          <sebm-google-map-marker *ngIf="latitude && longitude" [latitude]="latitude" [longitude]="longitude">
+          </sebm-google-map-marker>
+        </sebm-google-map>-->
+      </md-card>
+    </div>
+  </div>
+</div>

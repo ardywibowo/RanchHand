@@ -1,0 +1,7 @@
+{
+  "electron": {
+    "name": "Ranch Hand",
+    "version": "1.0.0",
+    "description": "Livestock Monitoring Application"
+  }
+}

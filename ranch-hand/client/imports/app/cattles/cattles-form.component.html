@@ -1,0 +1,19 @@
+<div class="form-container">
+  <div class="container-background">
+    <div class="form-content">
+      <div class="form-center">
+        <form *ngIf="user" [formGroup]="addForm" (ngSubmit)="addCattle();">
+          <div style="display: table-row">
+            <div class="form-inputs">
+              <md-input-container>
+                <input mdInput dividerColor="accent" formControlName="name" placeholder="Cattle name"></input>
+              </md-input-container>
+              <br/>
+              <button color="accent" md-raised-button type="submit">Add my cattle!</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

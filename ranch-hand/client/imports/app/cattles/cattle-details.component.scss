@@ -1,0 +1,25 @@
+.cattle-details-container {
+  display: table;
+
+  .row {
+    display: table-row;
+    width: 100%;
+
+    .cattle-details, .cattle-invites, .cattle-map {
+      display: table-cell;
+      width: 33.3%;
+      vertical-align: top;
+
+      md-card {
+        margin: 20px;
+      }
+    }
+
+    .cattle-map {
+      ng2-map {
+        height: 300px;
+        width: 100%;
+      }
+    }
+  }
+}
